@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 64" width="48" height="64">
+  <!-- Canudo com gradiente -->
+  <defs>
+    <linearGradient id="gradCanudo" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#eb7495;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#d752b1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#017143;stop-opacity:1" />
+    </linearGradient>
+    <style>
+      @keyframes sway {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(4deg); }
+        75% { transform: rotate(-4deg); }
+      }
+      .straw {
+        animation: sway 1.5s ease-in-out infinite;
+        transform-origin: 24px 4px;
+      }
+    </style>
+  </defs>
+  
+  <!-- Canudo principal (mais espesso e comprido) -->
+  <g class="straw">
+    <!-- Corpo do canudo -->
+    <rect x="20" y="4" width="8" height="48" fill="url(#gradCanudo)" rx="4"/>
+    
+    <!-- Ponta do canudo (bisel) -->
+    <ellipse cx="24" cy="52" rx="4" ry="3" fill="#d752b1"/>
+    <polygon points="20,52 28,52 24,56" fill="#eb7495"/>
+    
+    <!-- Brilho lateral -->
+    <rect x="21" y="8" width="1.5" height="40" fill="white" opacity="0.4" rx="1"/>
+    
+    <!-- Sombreamento oposto -->
+    <rect x="26.5" y="8" width="1" height="40" fill="#000" opacity="0.1" rx="1"/>
+  </g>
+  
+  <!-- Círculo de referência (ponto de clique) -->
+  <circle cx="24" cy="24" r="2" fill="#017143" opacity="0.5"/>
+</svg>
