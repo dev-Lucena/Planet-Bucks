@@ -1,0 +1,307 @@
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --cor-atual: #017143;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    cursor: url('img/cursor.svg') 24 12, auto;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    padding: 20px 100px 42px;
+    background-image: url("img/fundo.jpg");
+    background-position: center;
+    background-size: cover;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+    position: relative;
+}
+
+.caixa-conteudo {
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 420px);
+    align-items: center;
+    gap: clamp(1rem, 3vw, 3rem);
+    flex: 1 0 auto;
+    min-height: auto;
+}
+
+.caixa-textos {
+    width: min(100%, 600px);
+    max-width: 600px;
+}
+
+h2 {
+    color: #fff;
+    font-weight: 600;
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+}
+
+.texto-starbucks {
+    color: #017143;
+    font-weight: 900;
+    font-size: clamp(2.9rem, 7vw, 4.375rem);
+}
+
+.paragrafo {
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.7;
+}
+
+button {
+    background-color: #017143;
+    color: #fff;
+    margin-top: 30px;
+    padding: 12px 22px;
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: 0.5s;
+    font-size: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+button:hover {
+    background-color: #00b368;
+    transform: translateY(-2px);
+}
+
+.logo {
+    width: 80px;
+    display: block;
+    margin-bottom: 24px;
+}
+
+.caixa-imagem {
+    width: min(100%, 520px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    overflow: visible;
+    justify-self: center;
+}
+
+.imagem-copo {
+    width: min(100%, 360px);
+    display: block;
+    opacity: 1;
+    transition: opacity 300ms ease, transform 150ms ease;
+    will-change: opacity, transform;
+}
+
+.imagem-copo.pressed {
+    transform: scale(0.95);
+}
+
+.caixa-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+    width: 100%;
+}
+
+.botao-menu {
+    width: clamp(55px, 8vw, 80px);
+    cursor: pointer;
+    margin: 10px;
+    padding: 6px;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    background: rgba(255, 255, 255, 0.08);
+    transition: transform 150ms ease, filter 150ms ease, border-color 150ms ease, background 150ms ease;
+    display: block;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+.botao-menu:hover {
+    transform: translateY(-4px) scale(1.04);
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.28));
+}
+
+.botao-menu.active {
+    transform: translateY(-20px) scale(1.08);
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+@media (max-width: 1200px) {
+    body {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .caixa-conteudo {
+        grid-template-columns: 1fr;
+        text-align: center;
+        min-height: auto;
+        gap: 1.5rem;
+    }
+
+    .caixa-textos {
+        width: 100%;
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .caixa-imagem {
+        width: 100%;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        padding: 20px 25px 50px;
+    }
+
+    .caixa-conteudo {
+        align-items: center;
+        text-align: center;
+        min-height: auto;
+        gap: 1rem;
+    }
+
+    .caixa-textos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .caixa-imagem {
+        width: 100%;
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    .paragrafo {
+        max-width: 100%;
+    }
+
+    button {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .caixa-menu {
+        margin-top: 1.5rem;
+    }
+
+    .botao-menu {
+        width: 70px;
+    }
+
+    .caixa-textos {
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        width: 60px;
+        margin-bottom: 18px;
+    }
+
+    .caixa-menu {
+        margin-top: 1rem;
+        gap: 0.4rem;
+    }
+
+    .botao-menu {
+        margin: 6px;
+        width: 58px;
+        padding: 4px;
+        border-radius: 12px;
+    }
+
+    .botao-menu.active {
+        transform: translateY(-10px) scale(1.05);
+    }
+
+    .imagem-copo {
+        width: min(72vw, 260px);
+    }
+
+    .caixa-textos {
+        gap: 0.6rem;
+    }
+}
+
+@media (max-width: 420px) {
+    body {
+        padding: 16px 16px 40px;
+    }
+
+    h2 {
+        font-size: 2.1rem;
+    }
+
+    .texto-starbucks {
+        font-size: 2.4rem;
+    }
+
+    .paragrafo {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 11px 18px;
+        font-size: 0.95rem;
+    }
+
+    .botao-menu {
+        width: 52px;
+        margin: 4px;
+    }
+
+    .caixa-menu {
+        gap: 0.2rem;
+    }
+}
+
+.circulo {
+    /* brilho translúcido no canto inferior direito, ~1/4 da tela, em vez de cor chapada cobrindo tudo */
+    position: fixed;
+    right: -8%;
+    bottom: -8%;
+    width: clamp(240px, 30vw, 520px);
+    height: clamp(240px, 30vh, 520px);
+    background: radial-gradient(circle at 65% 65%, var(--cor-atual) 0%, color-mix(in srgb, var(--cor-atual) 60%, transparent) 45%, transparent 72%);
+    filter: blur(35px);
+    opacity: 0.7;
+    mix-blend-mode: screen;
+    z-index: -1;
+    pointer-events: none;
+    transition: background 0.6s ease, opacity 0.6s ease;
+}
+
+@media (max-width: 600px) {
+    .circulo {
+        width: clamp(180px, 45vw, 320px);
+        height: clamp(180px, 45vh, 320px);
+        filter: blur(24px);
+    }
+}
